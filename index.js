@@ -7,7 +7,7 @@ const capitalize = function (string) {
   }
 }
 
-// console.log(capitalize('abc'));
+console.log('capitalize: hello, how are you?:', capitalize('hello, how are you?'));
 
 const reverseString = (string) => {
   const chars = string.split('');
@@ -22,7 +22,7 @@ const reverseString = (string) => {
   return reverseString;
 }
 
-// console.log(reverseString('abc'))
+console.log('reverseString: Fine, thanks for asking!:', reverseString('Fine, thanks for asking!'))
 
 const calc = (function () {
   const add = (x, y) => x + y;
@@ -32,10 +32,11 @@ const calc = (function () {
   return ({ add, subtract, multiply, divide })
 })()
 
-// console.log(`10 + 4 = ${calc.add(10,4)}`);
-// console.log(`10 - 4 = ${calc.subtract(10,4)}`);
-// console.log(`10 * 4 = ${calc.multiply(10,4)}`);
-// console.log(`10 / 4 = ${calc.divide(10,4)}`);
+console.log('calc add, subtract, multiply, divide:')
+console.log('add:', `10 + 4 = ${calc.add(10, 4)}`);
+console.log('subtract:', `10 - 4 = ${calc.subtract(10, 4)}`);
+console.log('multiply:', `10 * 4 = ${calc.multiply(10, 4)}`);
+console.log('divide:', `10 / 4 = ${calc.divide(10, 4)}`);
 
 const caesarCipher = (function () {
   const encode = (cipher, string) => {
@@ -69,7 +70,38 @@ const caesarCipher = (function () {
   return ({ encode, decode });
 })();
 
-const coded = caesarCipher.encode(1, 'xyz');
-console.log(coded);
+// need to deal with letter overflow issues
+const coded = caesarCipher.encode(1, 'Attack at dawn.');
+console.log('caesarCipher coded:', coded);
 const decoded = caesarCipher.decode(1, coded);
-console.log(decoded);
+console.log('caesarCipher decoded:', decoded);
+
+const analyzeArray = (function () {
+  const average = (array) => {
+    let sum = 0;
+    array.forEach(item => sum += item);
+    return sum / array.length;
+  };
+  const min = (array) => {
+    let min = array[0];
+    array.forEach(item => {
+      if (item < min) min = item;
+    });
+    return min;
+  };
+  const max = (array) => {
+    let max = array[0];
+    array.forEach(item => {
+      if (item > max) max = item;
+    });
+    return max;
+  };
+  const length = array => array.length;
+  return { average, min, max, length };
+})();
+
+console.log('analyzeArray [-1, 0, 1, 2, 3, 4]:');
+console.log('average', analyzeArray.average([-1, 0, 1, 2, 3, 4]));
+console.log('min', analyzeArray.min([-1, 0, 1, 2, 3, 4]));
+console.log('max', analyzeArray.max([-1, 0, 1, 2, 3, 4]));
+console.log('length', analyzeArray.length([-1, 0, 1, 2, 3, 4]));
