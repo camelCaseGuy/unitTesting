@@ -1,13 +1,7 @@
-const capitalize = function (string) {
-  const charCode = string.charCodeAt(0);
-  if (charCode > 96 && charCode < 123) {
-    return String.fromCharCode(charCode - 32) + string.slice(1);
-  } else {
-    return 'First character must be a lowercased letter.'
-  }
-}
+import { capitalize } from "./capitalize.js";
 
-console.log('capitalize: hello, how are you?:', capitalize('hello, how are you?'));
+console.log('capitalize: 12@#abcd@#34:', capitalize('12@#abcd@#34?'));
+
 
 const reverseString = (string) => {
   const chars = string.split('');
