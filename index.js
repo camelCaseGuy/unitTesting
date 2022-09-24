@@ -1,20 +1,8 @@
-import { capitalize } from "./capitalize.js";
+import { capitalize } from './capitalize.js';
+import { reverseString } from './reverseString.js';
 
 console.log('capitalize: 12@#abcd@#34:', capitalize('12@#abcd@#34?'));
 
-
-const reverseString = (string) => {
-  const chars = string.split('');
-  const reverseChars = (arr) => {
-    let reversed = [];
-    for (let i = arr.length; i > 0; i--) {
-      reversed.push(arr[i - 1]);
-    }
-    return reversed;
-  }
-  const reverseString = reverseChars(chars).join('');
-  return reverseString;
-}
 
 console.log('reverseString: Fine, thanks for asking!:', reverseString('Fine, thanks for asking!'))
 
