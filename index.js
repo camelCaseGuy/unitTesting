@@ -1,5 +1,8 @@
 import { capitalize } from './capitalize.js';
 import { reverseString } from './reverseString.js';
+import { analyzeArray } from './analyzeArray.js';
+import { caesarCipher } from './caesarCipher.js';
+
 
 console.log('capitalize: 12@#abcd@#34:', capitalize('12@#abcd@#34?'));
 
@@ -20,70 +23,14 @@ console.log('subtract:', `10 - 4 = ${calc.subtract(10, 4)}`);
 console.log('multiply:', `10 * 4 = ${calc.multiply(10, 4)}`);
 console.log('divide:', `10 / 4 = ${calc.divide(10, 4)}`);
 
-const caesarCipher = (function () {
-  const encode = (cipher, string) => {
-    const stringCharArr = string.split('');
-    const encodedCharArr = [];
-    stringCharArr.forEach(char => {
-      if ((char.charCodeAt() > 64 && char.charCodeAt() < 91)
-        || (char.charCodeAt() > 96 && char.charCodeAt() < 123)) {
-        const enCodeChar = String.fromCharCode(char.charCodeAt() + cipher);
-        encodedCharArr.push(enCodeChar);
-      } else {
-        encodedCharArr.push(char)
-      }
-    });
-    return encodedCharArr.join('');
-  }
-  const decode = (cipher, string) => {
-    const stringCharArr = string.split('');
-    const decodedCharArr = [];
-    stringCharArr.forEach(char => {
-      if ((char.charCodeAt() > 64 && char.charCodeAt() < 91)
-        || (char.charCodeAt() > 96 && char.charCodeAt() < 123)) {
-        const deCodeChar = String.fromCharCode(char.charCodeAt() - cipher);
-        decodedCharArr.push(deCodeChar);
-      } else {
-        decodedCharArr.push(char)
-      }
-    });
-    return decodedCharArr.join('');
-  }
-  return ({ encode, decode });
-})();
+// // need to deal with letter overflow issues
+// const coded = caesarCipher.encode(1, 'Attack at dawn.');
+// console.log('caesarCipher coded:', coded);
+// const decoded = caesarCipher.decode(1, coded);
+// console.log('caesarCipher decoded:', decoded);
 
-// need to deal with letter overflow issues
-const coded = caesarCipher.encode(1, 'Attack at dawn.');
-console.log('caesarCipher coded:', coded);
-const decoded = caesarCipher.decode(1, coded);
-console.log('caesarCipher decoded:', decoded);
-
-const analyzeArray = (function () {
-  const average = (array) => {
-    let sum = 0;
-    array.forEach(item => sum += item);
-    return sum / array.length;
-  };
-  const min = (array) => {
-    let min = array[0];
-    array.forEach(item => {
-      if (item < min) min = item;
-    });
-    return min;
-  };
-  const max = (array) => {
-    let max = array[0];
-    array.forEach(item => {
-      if (item > max) max = item;
-    });
-    return max;
-  };
-  const length = array => array.length;
-  return { average, min, max, length };
-})();
-
-console.log('analyzeArray [-1, 0, 1, 2, 3, 4]:');
-console.log('average', analyzeArray.average([-1, 0, 1, 2, 3, 4]));
-console.log('min', analyzeArray.min([-1, 0, 1, 2, 3, 4]));
-console.log('max', analyzeArray.max([-1, 0, 1, 2, 3, 4]));
-console.log('length', analyzeArray.length([-1, 0, 1, 2, 3, 4]));
+// console.log('analyzeArray [-1, 0, 1, 2, 3, 4]:');
+// console.log('average', analyzeArray.average([-1, 0, 1, 2, 3, 4]));
+// console.log('min', analyzeArray.min([-1, 0, 1, 2, 3, 4]));
+// console.log('max', analyzeArray.max([-1, 0, 1, 2, 3, 4]));
+// console.log('length', analyzeArray.length([-1, 0, 1, 2, 3, 4]));
