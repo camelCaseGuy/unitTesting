@@ -1,5 +1,6 @@
 import { capitalize } from './capitalize.js';
 import { reverseString } from './reverseString.js';
+import { calc } from './calc.js';
 import { analyzeArray } from './analyzeArray.js';
 import { caesarCipher } from './caesarCipher.js';
 
@@ -9,13 +10,6 @@ console.log('capitalize: 12@#abcd@#34:', capitalize('12@#abcd@#34?'));
 
 console.log('reverseString: Fine, thanks for asking!:', reverseString('Fine, thanks for asking!'))
 
-const calc = (function () {
-  const add = (x, y) => x + y;
-  const subtract = (x, y) => x - y;
-  const multiply = (x, y) => x * y;
-  const divide = (x, y) => x / y;
-  return ({ add, subtract, multiply, divide })
-})()
 
 console.log('calc add, subtract, multiply, divide:')
 console.log('add:', `10 + 4 = ${calc.add(10, 4)}`);
