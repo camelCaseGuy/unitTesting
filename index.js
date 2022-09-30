@@ -17,6 +17,7 @@ console.log('subtract:', `10 - 4 = ${calc.subtract(10, 4)}`);
 console.log('multiply:', `10 * 4 = ${calc.multiply(10, 4)}`);
 console.log('divide:', `10 / 4 = ${calc.divide(10, 4)}`);
 
+
 // // need to deal with letter overflow issues
 // const coded = caesarCipher.encode(1, 'Attack at dawn.');
 // console.log('caesarCipher coded:', coded);
